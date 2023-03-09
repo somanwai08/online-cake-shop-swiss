@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ch02範例</title>
+</head>
+
+<body>
+    <form action="form_action.php" method="get">
+        <h1>基本資料</h1>
+        <label for="myname">姓名</label>
+        <input type="text" id="myname" name="myname">
+        <br>
+        <br>
+        <label for="grade">年級</label>
+        <select id="grade">
+            <option value="一年級">一年級</option>
+            <option value="二年級">二年級</option>
+            <option value="三年級">三年級</option>
+            <option value="四年級">四年級</option>
+            <option value="五年級">五年級</option>
+            <option value="六年級">六年級</option>
+        </select>
+        <br>
+        <br>
+        <p>性別</p>
+        <label for="male">男</label>
+        <input type="radio" id="male" name="sex">
+        <label for="female">女</label>
+        <input type="radio" id="female" name="sex">
+        <br>
+        <br>
+        <label for="remarks">備註</label>
+        <br>
+        <textarea rows="4" id="remarks"></textarea>
+        <br>
+        <br>
+        <input type="submit" value="送出">
+    </form>
+</body>
+
+</html>

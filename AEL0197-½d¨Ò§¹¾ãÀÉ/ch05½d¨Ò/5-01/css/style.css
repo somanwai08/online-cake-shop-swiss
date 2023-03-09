@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/* CSS Document */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: beige;
+    font-family: Microsoft JhengHei;
+}
+#wrapper {
+    margin: 0px auto;
+    width: 1024px;
+}
+
+/*header*/
+#logo {
+    height: 250px;
+}
+nav {
+    background-color: #B63D32;
+    text-align: center;
+}
+ul {
+    display: inline-block;
+    margin: 0px;
+}
+li {
+    list-style-type: none;
+    float: left;
+    text-align: center;
+}
+li a {
+    display: block;
+    padding: 15px 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+li a:hover {
+    color: #FFC90E;
+}
+
+/*content*/
+#content_in {
+    padding: 30px 50px;
+    text-align: center;
+    background-color: #F4F4ED;
+}
+
+#content h1 {
+    color: #B63D32;
+    margin-bottom: 10px;
+}
+#content p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+#content a {
+    display: block;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: #B63D32;
+    color: #FFFFFF;
+}
+
+/*footer*/
+footer {
+    clear: both;
+    background-color: #71552A;
+    text-align: center;
+}
+footer p {
+    font-size: 10px;
+    color: #FFFFFF;
+    padding: 10px 0px;
+}

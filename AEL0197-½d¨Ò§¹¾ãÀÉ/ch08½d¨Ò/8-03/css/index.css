@@ -1,0 +1,148 @@
+body {
+    font-family: Microsoft JhengHei;
+    color: #ffffff;
+}
+
+
+/*header*/
+
+header a {
+    width: 180px;
+    display: block;
+    font-size: 18px;
+    color: #000;
+    margin-top: 0px;
+}
+
+header a:hover {
+    color: #ccc;
+}
+
+
+/*banner*/
+
+#banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(../images/banner.jpg);
+    padding-bottom: 43%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#inner {
+    position: relative;
+    top: 60px;
+}
+
+h1 {
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+p {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+a {
+    padding: 20px 0px 20px 0px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    text-transform: uppercase;
+    margin-top: 16px;
+    color: #ffffff;
+    display: block;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.green {
+    border: none;
+    background-color: #52d65a;
+}
+
+.green:hover {
+    background-color: #6dd873;
+}
+
+.white {
+    border: #fff solid 0.05px;
+}
+
+.white:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/*main*/
+
+#main {
+    background-color: #545669;
+    color: #fff;
+}
+
+.col-md-6 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.row .col-md-6:nth-child(1) {
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+.row .col-md-6:nth-child(2) {
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+.row .col-md-6:nth-child(3) {
+    background-color: rgba(0, 0, 0, 0.105);
+}
+
+.row .col-md-6:nth-child(4) {
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
+.content {
+    width: 80%;
+}
+
+h3 {
+    color: #6fff77;
+    font-weight: bold;
+}
+
+.detail {
+    width: 100px;
+    border: #fff solid 1px;
+}
+
+.detail:hover {
+    background-color: #3e4156;
+}
+
+
+/*footer*/
+
+footer {
+    background-color: #ffffff;
+    padding: 10px;
+    color: #6f6f6f;
+}
+
+@media screen and (max-width: 480px) {
+    #banner {
+        padding-bottom: 10%;
+    }
+    #inner {
+        top: 2px;
+    }
+}

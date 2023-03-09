@@ -1,0 +1,117 @@
+body {
+    font-family: Microsoft JhengHei;
+    color: #777;
+}
+
+
+/*navbar*/
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.navbar {
+    padding-top: 25px;
+}
+
+.navbar-brand {
+    color: #189ADE;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.navbar-brand a {
+    color: #444;
+    font-weight: bold;
+}
+
+
+/*banner*/
+
+#banner {
+    height: 350px;
+    background-image: url(../images/banner.jpg);
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 30px;
+}
+
+
+/*col-md-4*/
+
+.col-md-4 {
+    padding: 10px 0px;
+    background-color: #a2a2a2;
+    color: #fff;
+}
+
+.col-md-4 li {
+    margin-bottom: 10px;
+}
+
+
+/*col-md-8*/
+
+.col-md-8 h4 {
+    font-weight: bold;
+}
+
+.col-md-8 p {
+    line-height: 25px;
+    text-align: justify;
+}
+
+
+/*item*/
+
+#item {
+    margin-top: 30px;
+}
+
+.desc {
+    padding: 10px 5px;
+    border: #b3b3b3 solid 1px;
+    border-top: none;
+}
+
+
+/*footer*/
+
+footer {
+    background-color: #333333;
+    padding: 30px 0px;
+    color: #ccc;
+    margin-top: 50px;
+}
+
+
+/*Media Queries*/
+
+@media screen and (max-width: 991px) {
+    .col-md-8,
+    footer {
+        margin-top: 30px;
+    }
+    .col-md-3 {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding-top: 0px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .col-md-4 {
+        width: 90%;
+        margin: 0px auto;
+    }
+    .col-md-8{
+        width: 90%;
+        margin: 0px auto;
+        padding-top: 15px;
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ch03範例</title>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    div {
+        text-align: center;
+        border: 3px solid #000;
+        color: white;
+    }
+    #relative {
+        background: blue;
+        height: 400px;
+        width: 500px;
+        line-height: 350px;
+        position: relative;
+        top: 50px;
+        left: 50px;
+    }
+    #absolute {
+        width: 200px;
+        height: 200px;
+        background: red;
+        position: absolute;
+        top: 197px;
+        left: 297px;
+        line-height: 200px;
+    }
+    </style>
+</head>
+<body>
+    <div id="relative">
+        我是可定位的父元素
+        <div id="absolute" class="absolute">我的父元素可定位</div>
+    </div>
+</body>
+</html>

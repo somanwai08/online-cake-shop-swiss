@@ -1,0 +1,67 @@
+body {
+    font-family: Microsoft JhengHei;
+    color: #777;
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+
+/*header*/
+
+#photo {
+    padding: 5px;
+    margin-top: 70px;
+    border: solid 1px rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.075);
+}
+
+h4 {
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 50px;
+}
+
+
+/*content*/
+
+a {
+    display: block;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+    -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+    -moz-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+    background-color: rgba(255, 255, 255, 0.075);
+    padding: 0px 0px 8px 0px;
+    margin-bottom: 40px;
+}
+
+a:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.28);
+}
+
+h5 {
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+
+/*footer*/
+
+footer {
+    color: rgba(255, 255, 255, 0.65);
+    padding: 15px 0px;
+}
+
+@media screen and (max-width: 768px) {
+    a {
+        padding-top: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    a {
+        padding-top: 0px;
+    }
+}
