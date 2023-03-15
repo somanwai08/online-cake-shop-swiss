@@ -93,12 +93,14 @@
                   </div>
                 </div>
               </td>
-              <td class="col-md-1 align-middle">$<span>100</span></td>
+              <td class="col-md-1 align-middle">
+                $<span class="netPrice">75</span>
+              </td>
               <td class="col-md-1">
                 <div class="d-flex quantity mt-4">
-                  <input class="border" type="button" value="+" id="add" />
+                  <input class="border add" type="button" value="+" id="add" />
                   <input
-                    class="border text-center"
+                    class="border text-center quan"
                     type="text"
                     id="total"
                     value="1"
@@ -106,7 +108,7 @@
                   />
 
                   <input
-                    class="border"
+                    class="border reduce"
                     type="button"
                     value="-"
                     id="reduce"
@@ -114,8 +116,8 @@
                   />
                 </div>
               </td>
-              <td class="col-md-1 align-middle">1000</td>
-              <td class="col-md-1 align-middle">刪除</td>
+              <td class="col-md-1 align-middle subTotal">75</td>
+              <td class="col-md-1 align-middle del">刪除</td>
             </tr>
             <tr>
               <th scope="row" class="col-md-1">1</th>
@@ -124,25 +126,27 @@
                   <div class="row g-0">
                     <div class="col-md-4">
                       <img
-                        src="./images/cake01.jpg"
+                        src="./images/cake03.jpg"
                         class="img-fluid"
                         alt="..."
                       />
                     </div>
                     <div class="col-md-8 align-items-center d-flex">
                       <div class="card-body">
-                        <h5 class="card-title">鄉村檸檬乳酪塔</h5>
+                        <h5 class="card-title">限量莓果乳酪蛋糕</h5>
                       </div>
                     </div>
                   </div>
                 </div>
               </td>
-              <td class="col-md-1 align-middle">$<span>100</span></td>
+              <td class="col-md-1 align-middle">
+                $<span class="netPrice">75</span>
+              </td>
               <td class="col-md-1">
                 <div class="d-flex quantity mt-4">
-                  <input class="border" type="button" value="+" id="add" />
+                  <input class="border add" type="button" value="+" id="add" />
                   <input
-                    class="border text-center"
+                    class="border text-center quan"
                     type="text"
                     id="total"
                     value="1"
@@ -150,7 +154,7 @@
                   />
 
                   <input
-                    class="border"
+                    class="border reduce"
                     type="button"
                     value="-"
                     id="reduce"
@@ -158,8 +162,8 @@
                   />
                 </div>
               </td>
-              <td class="col-md-1 align-middle">1000</td>
-              <td class="col-md-1 align-middle">刪除</td>
+              <td class="col-md-1 align-middle subTotal">75</td>
+              <td class="col-md-1 align-middle del">刪除</td>
             </tr>
             <tr>
               <th scope="row" class="col-md-1">1</th>
@@ -168,25 +172,27 @@
                   <div class="row g-0">
                     <div class="col-md-4">
                       <img
-                        src="./images/cake01.jpg"
+                        src="./images/cake02.jpg"
                         class="img-fluid"
                         alt="..."
                       />
                     </div>
                     <div class="col-md-8 align-items-center d-flex">
                       <div class="card-body">
-                        <h5 class="card-title">鄉村檸檬乳酪塔</h5>
+                        <h5 class="card-title">精緻手工巧克蛋糕</h5>
                       </div>
                     </div>
                   </div>
                 </div>
               </td>
-              <td class="col-md-1 align-middle">$<span>100</span></td>
+              <td class="col-md-1 align-middle">
+                $<span class="netPrice">75</span>
+              </td>
               <td class="col-md-1">
                 <div class="d-flex quantity mt-4">
-                  <input class="border" type="button" value="+" id="add" />
+                  <input class="border add" type="button" value="+" id="add" />
                   <input
-                    class="border text-center"
+                    class="border text-center quan"
                     type="text"
                     id="total"
                     value="1"
@@ -194,7 +200,7 @@
                   />
 
                   <input
-                    class="border"
+                    class="border reduce"
                     type="button"
                     value="-"
                     id="reduce"
@@ -202,11 +208,16 @@
                   />
                 </div>
               </td>
-              <td class="col-md-1 align-middle">1000</td>
-              <td class="col-md-1 align-middle">刪除</td>
+              <td class="col-md-1 align-middle subTotal">75</td>
+              <td class="col-md-1 align-middle del">刪除</td>
             </tr>
           </tbody>
         </table>
+        <div class="row mx-3">
+          <div class="ms-auto" style="width: 150px">
+            总价：$ <span class="totalPrice ms-1">225</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -222,21 +233,61 @@
     <!-- javascript -->
     <script>
       // 獲取元素
-      const total = document.querySelector('#total')
-      const add = document.querySelector('#add')
-      const reduce = document.querySelector('#reduce')
+      let quantity = document.querySelectorAll('.quan')
+      let add = document.querySelectorAll('.add')
+      let reduce = document.querySelectorAll('.reduce')
+      let subTotal = document.querySelectorAll('.subTotal')
+      let span = document.querySelectorAll('span')
+      let netPrice = document.querySelectorAll('.netPrice')
+      let del = document.querySelectorAll('.del')
+      let tr = document.querySelectorAll('tbody tr')
+      let tbody = document.querySelector('tbody')
+      let totalPrice = document.querySelector('.totalPrice')
 
-      // 點擊添加按鈕時候，數字+1，減少按鈕啟用
-      add.addEventListener('click', function () {
-        reduce.disabled = false
-        total.value++
-      })
+      for (let i = 0; i < add.length; i++) {
+        // 點擊添加按鈕時候，數字+1，減少按鈕啟用
+        add[i].addEventListener('click', function () {
+          reduce[i].disabled = false
+          quantity[i].value++
+          // console.log(quantity[i].value)
+          subTotal[i].innerHTML =
+            parseInt(netPrice[0].innerText) * quantity[i].value
 
-      //  點擊減少按鈕的時候，數值-1，數值=1時，減少按鈕禁用
-      reduce.addEventListener('click', function () {
-        total.value--
-        if (total.value === '1') reduce.disabled = true
-      })
+          totalPrice.innerHTML = getTotal()
+        })
+
+        //  點擊減少按鈕的時候，數值-1，數值=1時，減少按鈕禁用
+        reduce[i].addEventListener('click', function () {
+          quantity[i].value--
+          if (quantity[i].value === '1') reduce[i].disabled = true
+
+          subTotal[i].innerHTML =
+            parseInt(netPrice[0].innerText) * quantity[i].value
+          totalPrice.innerHTML = getTotal()
+        })
+
+        // 點擊刪除，刪除貨品
+        del[i].addEventListener('click', function () {
+          tbody.removeChild(tr[i])
+          add = document.querySelectorAll('.add')
+          // console.log(add)
+          subTotal[i].innerHTML =
+            parseInt(netPrice[0].innerText) * quantity[i].value
+          totalPrice.innerHTML = getTotal()
+        })
+      }
+
+      // 计算总价
+      function getTotal() {
+        let price = 0
+        for (let i = 0; i < add.length; i++) {
+          // console.log(parseInt(subTotal[i].innerText))
+          price += parseInt(subTotal[i].innerText)
+        }
+        return price
+      }
+
+      // getTotal()
     </script>
   </body>
 </html>
