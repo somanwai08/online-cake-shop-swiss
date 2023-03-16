@@ -297,7 +297,6 @@
       function getTotal() {
         let subTotal = document.querySelectorAll('.subTotal')
         let add = document.querySelectorAll('.add')
-        console.log(add, 'add getTotal')
         let price = 0
         for (let i = 0; i < add.length; i++) {
           price += parseInt(subTotal[i].innerText)
