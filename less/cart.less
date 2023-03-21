@@ -33,11 +33,41 @@
 
   .mx-3 {
     .TP {
+      // color: red;
       color: #fa8072;
       font-size: 20px;
+
       .totalPrice {
         color: black;
         font-size: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    .mx-3 {
+      .TP {
+        line-height: 62px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    .mx-3 {
+      .TP {
+        line-height: 86px;
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    .mx-3 {
+      .TP {
+        line-height: 86px;
       }
     }
   }

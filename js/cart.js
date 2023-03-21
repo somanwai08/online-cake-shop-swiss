@@ -129,6 +129,7 @@ tbody.addEventListener('click', function (e) {
     let index1 = data.findIndex((item) => item.id === e.target.dataset.id)
     data[index1].checked = !data[index1].checked
   }
+
   // 更新本地存儲內容
   localStorage.setItem('cart', JSON.stringify(data))
   // 更新總價
