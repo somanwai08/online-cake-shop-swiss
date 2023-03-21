@@ -26,11 +26,11 @@
 .container .quantity input[type='text'] {
   width: 30px;
 }
-.container .mx-3 .ms-auto {
+.container .mx-3 .TP {
   color: #fa8072;
   font-size: 20px;
 }
-.container .mx-3 .ms-auto .totalPrice {
+.container .mx-3 .TP .totalPrice {
   color: black;
   font-size: 30px;
 }
