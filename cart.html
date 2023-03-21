@@ -72,69 +72,7 @@
               <th scope="col">操作</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- <tr>
-              <th scope="row" class="col-md-1 text-center align-middle">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckChecked"
-                  checked
-                />
-              </th>
-              <td class="col-md-7">
-                <div class="card border-0">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                      <img
-                        src="./images/cake01.jpg"
-                        class="img-fluid"
-                        alt="..."
-                      />
-                    </div>
-                    <div class="col-md-8 align-items-center d-flex">
-                      <div class="card-body">
-                        <h5 class="card-title">鄉村檸檬乳酪塔</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="col-md-1 align-middle">
-                $<span class="netPrice">75</span>
-              </td>
-              <td class="col-md-1">
-                <div class="d-flex quantity mt-4">
-                  <input
-                    class="border add a"
-                    type="button"
-                    value="+"
-                    id="add"
-                  />
-                  <input
-                    class="border text-center quan"
-                    type="text"
-                    id="total"
-                    value="1"
-                    readonly
-                  />
-
-                  <input
-                    class="border reduce"
-                    type="button"
-                    value="-"
-                    id="reduce"
-                    disabled
-                  />
-                </div>
-              </td>
-              <td class="col-md-1 align-middle subTotal">75</td>
-              <td class="col-md-1 align-middle del" data-id="鄉村檸檬乳酪塔">
-                刪除
-              </td>
-            </tr> -->
-          </tbody>
+          <tbody></tbody>
         </table>
         <div
           class="row mx-3 border border-dark-subtle justify-content-end px-0"
@@ -160,66 +98,6 @@
         </p>
       </footer>
     </div>
-
-    <!-- javascript -->
-    <!-- <script>
-      // 獲取元素
-      let quantity = document.querySelectorAll('.quan')
-      let add = document.querySelectorAll('.add')
-      let reduce = document.querySelectorAll('.reduce')
-      let subTotal = document.querySelectorAll('.subTotal')
-      let span = document.querySelectorAll('span')
-      let netPrice = document.querySelectorAll('.netPrice')
-      let del = document.querySelectorAll('.del')
-      let tr = document.querySelectorAll('tbody tr')
-      let tbody = document.querySelector('tbody')
-      let totalPrice = document.querySelector('.totalPrice')
-
-      for (let i = 0; i < add.length; i++) {
-        // subTotal[i].innerText = netPrice[i].innerText
-        // 點擊添加按鈕時候，數字+1，減少按鈕啟用
-        add[i].addEventListener('click', function () {
-          // 減號啟用
-          reduce[i].disabled = false
-          // 數量自加
-          quantity[i].value++
-          // 計算小計
-          subTotal[i].innerText =
-            parseInt(netPrice[i].innerText) * quantity[i].value
-          // 計算總價
-          getTotal()
-        })
-
-        //  點擊減少按鈕的時候，數值-1，數值=1時，減少按鈕禁用
-        reduce[i].addEventListener('click', function () {
-          // 數量自減
-          quantity[i].value--
-          // 數量為1時，禁用減號
-          if (quantity[i].value === '1') reduce[i].disabled = true
-
-          subTotal[i].innerHTML =
-            parseInt(netPrice[i].innerText) * quantity[i].value
-          getTotal()
-        })
-
-        // 點擊刪除，刪除貨品
-        del[i].addEventListener('click', function () {
-          tbody.removeChild(tr[i])
-          getTotal()
-        })
-      }
-
-      // 计算总价
-      function getTotal() {
-        let subTotal = document.querySelectorAll('.subTotal')
-        let add = document.querySelectorAll('.add')
-        let price = 0
-        for (let i = 0; i < add.length; i++) {
-          price += parseInt(subTotal[i].innerText)
-        }
-        totalPrice.innerHTML = price
-      }
-    </script> -->
 
     <script src="./js/cart.js"></script>
   </body>

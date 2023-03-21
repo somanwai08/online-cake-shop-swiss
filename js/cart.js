@@ -1,19 +1,10 @@
 // 獲取元素
-// let quantity = document.querySelectorAll('.quan')
-let add = document.querySelectorAll('.add')
-let reduce = document.querySelectorAll('.reduce')
-let subTotal = document.querySelectorAll('.subTotal')
-let span = document.querySelectorAll('span')
-let netPrice = document.querySelectorAll('.netPrice')
-let del = document.querySelectorAll('.del')
-let tr = document.querySelectorAll('tbody tr')
-let tbody = document.querySelector('tbody') //
-let totalPrice = document.querySelector('.totalPrice')
 
-let data = [
-  { id: '鄉村檸檬乳酪塔', quantity: 1, pic: 'cake01.jpg' },
-  { id: '精緻手工巧克蛋糕', quantity: 2, pic: 'cake02.jpg' },
-]
+let tbody = document.querySelector('tbody')
+// let totalPrice = document.querySelector('.totalPrice')
+
+let data = JSON.parse(localStorage.getItem('cart'))
+
 // 渲染函數
 function render() {
   const newData = data.map(
@@ -25,7 +16,6 @@ function render() {
         type="checkbox"
         value=""
         id="flexCheckChecked"
-        checked
       />
     </th>
     <td class="col-md-7">
@@ -88,24 +78,25 @@ render()
 tbody.addEventListener('click', function (e) {
   if (e.target.tagName === 'INPUT') {
     if (e.target.classList.contains('add')) {
-      console.log(e.target.id) //e.target.id===蛋糕名稱
+      //e.target.id===蛋糕名稱
       //   找到data中，item.id===e.target.id的那一項的下標
       let i = data.findIndex((item) => item.id === e.target.id)
       // 讓該項的數量自增
       data[i].quantity++
+      // 更新本地存儲內容
+      localStorage.setItem('cart', JSON.stringify(data))
       //   重新渲染
       render()
     } else if (e.target.classList.contains('reduce')) {
-      console.log('hi')
-      console.log(e.target.id) //e.target.id===蛋糕名稱
+      // console.log(e.target.id) e.target.id===蛋糕名稱
       //   找到data中，item.id===e.target.id的那一項的下標
       let i = data.findIndex((item) => item.id === e.target.id)
       // 讓該項的數量自減
       data[i].quantity--
+      // 更新本地存儲內容
+      localStorage.setItem('cart', JSON.stringify(data))
       //   重新渲染
       render()
     }
   }
 })
-
-console.log(data.i)
