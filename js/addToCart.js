@@ -1,8 +1,32 @@
 let carList = [
-  { id: '鄉村檸檬乳酪塔', quantity: 0, pic: 'cake01.jpg', netprice: 75 },
-  { id: '精緻手工巧克蛋糕', quantity: 0, pic: 'cake02.jpg', netprice: 75 },
-  { id: '限量莓果乳酪蛋糕', quantity: 0, pic: 'cake03.jpg', netprice: 75 },
-  { id: '法式藍莓蛋糕', quantity: 0, pic: 'cake04.jpg', netprice: 75 },
+  {
+    id: '鄉村檸檬乳酪塔',
+    quantity: 0,
+    pic: 'cake01.jpg',
+    netprice: 75,
+    checked: true,
+  },
+  {
+    id: '精緻手工巧克蛋糕',
+    quantity: 0,
+    pic: 'cake02.jpg',
+    netprice: 75,
+    checked: false,
+  },
+  {
+    id: '限量莓果乳酪蛋糕',
+    quantity: 0,
+    pic: 'cake03.jpg',
+    netprice: 75,
+    checked: false,
+  },
+  {
+    id: '法式藍莓蛋糕',
+    quantity: 0,
+    pic: 'cake04.jpg',
+    netprice: 75,
+    checked: false,
+  },
 ]
 
 const toastTrigger = document.getElementById('liveToastBtn')

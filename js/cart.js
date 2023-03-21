@@ -19,6 +19,8 @@ function render() {
         type="checkbox"
         value=""
         id="flexCheckChecked"
+        data-id=${item.id}
+        ${item.checked === true ? 'checked' : ''}
       />
     </th>
     <td class="col-md-7">
@@ -77,13 +79,23 @@ function render() {
   )
   tbody.innerHTML = newData.join('')
 }
+
+// 計算總價函數
+function getTotalPrice(arr) {
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].quantity * arr[i].netprice
+  }
+  return sum
+}
+
 // 一打開頁面，首先要渲染購物車內容
 render()
 // 同時要顯示總價
 totalPrice.innerHTML = getTotalPrice(data)
 
-// 加減操作
 tbody.addEventListener('click', function (e) {
+  // 加減功能
   if (e.target.tagName === 'INPUT') {
     if (e.target.classList.contains('add')) {
       //e.target.id===蛋糕名稱
@@ -98,21 +110,29 @@ tbody.addEventListener('click', function (e) {
       // 讓該項的數量自減
       data[i].quantity--
     }
-    // 更新本地存儲內容
-    localStorage.setItem('cart', JSON.stringify(data))
-    // 更新總價
-    totalPrice.innerHTML = getTotalPrice(data)
-    //   重新渲染
-    render()
   }
-})
 
-// 數組求和  求和函數
-function getTotalPrice(arr) {
-  let sum = 0
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i].quantity * arr[i].netprice)
-    sum += arr[i].quantity * arr[i].netprice
+  // 刪除按鈕功能
+  if (e.target.classList.contains('del')) {
+    // e.target.dataset 是點中的刪除按鈕對應的蛋糕名稱
+    // 如果點擊了某款蛋糕的刪除按鈕，該款蛋糕的數量應該設置為0
+    // 找到data中，id等於被刪除蛋糕名稱的項的下標
+    let index1 = data.findIndex((item) => item.id === e.target.dataset.id)
+    data[index1].quantity = 0
   }
-  return sum
-}
+
+  // 單選功能
+  if (e.target.classList.contains('form-check-input')) {
+    // e.target.dataset 是點中的checkbox對應的蛋糕名稱
+    // 如果點擊了某款蛋糕的刪除按鈕，該款蛋糕的數量應該設置為0
+    // 找到data中，id等於被刪除蛋糕名稱的項的下標
+    let index1 = data.findIndex((item) => item.id === e.target.dataset.id)
+    data[index1].checked = !data[index1].checked
+  }
+  // 更新本地存儲內容
+  localStorage.setItem('cart', JSON.stringify(data))
+  // 更新總價
+  totalPrice.innerHTML = getTotalPrice(data)
+  //   重新渲染
+  render()
+})
