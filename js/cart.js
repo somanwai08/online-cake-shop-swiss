@@ -1,3 +1,4 @@
+// import '../css/icofont/icofont.min.css'
 // 獲取元素
 
 let tbody = document.querySelector('tbody')
@@ -7,12 +8,22 @@ let data = JSON.parse(localStorage.getItem('cart'))
 
 // 渲染函數
 function render() {
-  //  渲染的時候，本地存儲中數量為0的蛋糕不應該被渲染
-  // 因此應該用一個新數組，叫做deletedData，來接收數量不為0的蛋糕數據
-  const deletedData = data.filter((item) => item.quantity != 0)
-  const newData = deletedData.map(
-    (item) =>
-      `<tr>
+  let haveGds = false
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].quantity != 0) {
+      haveGds = true
+    }
+  }
+  // 如果購物車有貨品，則渲染貨品
+  if (haveGds === true) {
+    console.log(haveGds)
+    // 渲染之前應該先判斷，購物車中有沒有物品，沒有就渲染提示購買頁面
+    //  渲染的時候，本地存儲中數量為0的蛋糕不應該被渲染
+    // 因此應該用一個新數組，叫做deletedData，來接收數量不為0的蛋糕數據
+    const deletedData = data.filter((item) => item.quantity != 0)
+    const newData = deletedData.map(
+      (item) =>
+        `<tr>
     <th scope="row" class="col-md-1 text-center align-middle">
       <input
         class="form-check-input"
@@ -76,8 +87,16 @@ function render() {
       刪除
     </td>
   </tr>`
-  )
-  tbody.innerHTML = newData.join('')
+    )
+    tbody.innerHTML = newData.join('')
+  } else {
+    // 如果購物車沒有貨品，就提示購物
+    tbody.innerHTML = `
+    <th scope="row" class="col-md-1 text-center align-middle">
+    </th>
+    <td style="height:100px;line-height:100px;padding-left:100px;color:gray;font-size:30px;"><i class="icofont-cart icofont-2x" style="color:pink"></i>購物車沒有貨品，來看看有什麼喜歡的產品吧~！</td> 
+    <td style="height:100px;line-height:100px;"><a href="./product.html" style="color:red;">去選購>></a></td> <td ></td><td></td><td></td>`
+  }
 }
 
 // 計算總價函數
