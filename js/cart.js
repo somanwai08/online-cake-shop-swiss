@@ -2,7 +2,7 @@
 
 let tbody = document.querySelector('tbody')
 let totalPrice = document.querySelector('.totalPrice')
-
+const checkAllS = document.querySelector('#checkAllS')
 let data = JSON.parse(localStorage.getItem('cart'))
 
 // 渲染函數
@@ -112,7 +112,7 @@ tbody.addEventListener('click', function (e) {
     }
   }
 
-  // 刪除按鈕功能
+  // 右側刪除按鈕功能
   if (e.target.classList.contains('del')) {
     // e.target.dataset 是點中的刪除按鈕對應的蛋糕名稱
     // 如果點擊了某款蛋糕的刪除按鈕，該款蛋糕的數量應該設置為0
@@ -124,10 +124,18 @@ tbody.addEventListener('click', function (e) {
   // 單選功能
   if (e.target.classList.contains('form-check-input')) {
     // e.target.dataset 是點中的checkbox對應的蛋糕名稱
-    // 如果點擊了某款蛋糕的刪除按鈕，該款蛋糕的數量應該設置為0
-    // 找到data中，id等於被刪除蛋糕名稱的項的下標
+    // 如果點擊了某款蛋糕的單選按鈕，該款蛋糕的checked狀態應該取反
     let index1 = data.findIndex((item) => item.id === e.target.dataset.id)
     data[index1].checked = !data[index1].checked
+    let checkedNum = 0
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].checked === true) checkedNum++
+    }
+    // 如果所有单选项都勾选，全选项也要勾上
+    checkAllS.checked = checkedNum === 4
+    // 當全選框選上，文字就切換成'取消'
+    document.querySelector('.checkAllTitle').innerHTML =
+      checkAllS.checked === true ? '取消' : '全選'
   }
 
   // 更新本地存儲內容
@@ -135,5 +143,55 @@ tbody.addEventListener('click', function (e) {
   // 更新總價
   totalPrice.innerHTML = getTotalPrice(data)
   //   重新渲染
+  render()
+})
+
+// 全選功能----每次進入頁面都要看看是否每項蛋糕都被勾選上
+// 若勾選上，就要打鉤
+function checkAll() {
+  let checkedNum = 0
+
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].checked === true) checkedNum++
+  }
+
+  checkAllS.checked = checkedNum === 4
+  document.querySelector('.checkAllTitle').innerHTML =
+    checkedNum === 4 ? '取消' : '全選'
+}
+
+checkAll()
+
+// 如果全選按鈕被點擊，全選按鈕狀態取反。此時有兩種可能
+//  可能一：全選按鈕false->true，就是checkAllS.checked=true，那麼data裡面每一項對象的checked都改為true
+//  可能二：全選按鈕true->false,就是checkAllS.checked=false，那麼data裡面每一個對象的checked都改為false
+
+checkAllS.addEventListener('click', function () {
+  if (checkAllS.checked === true) {
+    for (let i = 0; i < data.length; i++) {
+      data[i].checked = true
+    }
+    // 當全選框選上，文字就切換成'取消'
+    document.querySelector('.checkAllTitle').innerHTML = '取消'
+  } else {
+    for (let i = 0; i < data.length; i++) {
+      data[i].checked = false
+    }
+    // 當全選框選上，文字就切換成'取消'
+    document.querySelector('.checkAllTitle').innerHTML = '全選'
+  }
+  // 更新本地存儲內容
+  localStorage.setItem('cart', JSON.stringify(data))
+  render()
+})
+
+// 點擊‘刪除選中項目’按鈕功能
+document.querySelector('.delSelected').addEventListener('click', function () {
+  //  點擊的時候，data中checked是true的對象，數量要變為0
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].checked === true) data[i].quantity = 0
+  }
+  // 更新本地存儲內容
+  localStorage.setItem('cart', JSON.stringify(data))
   render()
 })
