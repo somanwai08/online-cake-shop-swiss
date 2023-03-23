@@ -1,4 +1,3 @@
-// import '../css/icofont/icofont.min.css'
 // 獲取元素
 
 let tbody = document.querySelector('tbody')
@@ -212,5 +211,11 @@ document.querySelector('.delSelected').addEventListener('click', function () {
   }
   // 更新本地存儲內容
   localStorage.setItem('cart', JSON.stringify(data))
+  totalPrice.innerHTML = getTotalPrice(data)
   render()
+})
+
+// 去結算按鈕跳轉功能
+document.querySelector('.btn-danger').addEventListener('click', function () {
+  location.href = 'checkout.html'
 })

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/checkout.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Navbar/Header -->
+    <nav
+      class="navbar fixed-top navbar-expand-lg bg-body-tertiary bg-dark"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand">甜 時 ． Sweet</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">首頁</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">關於我們</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./product.html">產品介紹</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cart.html">購物車</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- checkout section -->
+    <div class="container">
+      <main class="my-5 py-5">
+        <div class="row g-5">
+          <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="urCart">賬目明細</span>
+            </h4>
+            <ul class="list-group mb-3"></ul>
+
+            <form class="card p-2">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="禮品卡號碼"
+                />
+                <button type="submit" class="btn btn-secondary">兌換</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">送貨地址</h4>
+            <form class="needs-validation" novalidate="">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">名字</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required=""
+                  />
+                  <div class="invalid-feedback">請輸入姓名</div>
+                </div>
+
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label">姓氏</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder=""
+                    value=""
+                    required=""
+                  />
+                  <div class="invalid-feedback">請輸入姓氏</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="email" class="form-label"
+                    >電郵 <span class="text-muted"></span
+                  ></label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="you@example.com"
+                  />
+                  <div class="invalid-feedback">請輸入一個有效的電郵地址</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address" class="form-label">地址欄</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    required=""
+                  />
+                  <div class="invalid-feedback">請輸入你的送貨地址</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address2" class="form-label"
+                    >地址欄 2 <span class="text-muted">(可選)</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address2"
+                    placeholder="街道或者區域"
+                  />
+                </div>
+
+                <div class="col-md-5">
+                  <label for="country" class="form-label">區域</label>
+                  <select class="form-select" id="country" required="">
+                    <option value="">請選擇</option>
+                    <option>United States</option>
+                  </select>
+                  <div class="invalid-feedback">請選擇一個區域</div>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="state" class="form-label">地區</label>
+                  <select class="form-select" id="state" required="">
+                    <option value="">請選擇</option>
+                    <option>California</option>
+                  </select>
+                  <div class="invalid-feedback">請選擇一個地區</div>
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="same-address"
+                />
+                <label class="form-check-label" for="same-address"
+                  >賬單地址和送貨地址相同</label
+                >
+              </div>
+
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="save-info"
+                />
+                <label class="form-check-label" for="save-info"
+                  >儲存資料供下次使用</label
+                >
+              </div>
+
+              <hr class="my-4" />
+
+              <h4 class="mb-3">付款方式</h4>
+
+              <div class="my-3">
+                <div class="form-check">
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    checked=""
+                    required=""
+                  />
+                  <label class="form-check-label" for="credit">信用卡</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    id="debit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required=""
+                  />
+                  <label class="form-check-label" for="debit">扣賬卡</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    id="paypal"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required=""
+                  />
+                  <label class="form-check-label" for="paypal">PayPal</label>
+                </div>
+              </div>
+
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">卡主姓名</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-name"
+                    placeholder=""
+                    required=""
+                  />
+                  <small class="text-muted">請輸入信用卡上的全名</small>
+                  <div class="invalid-feedback">卡主名字是必須的</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label">信用卡號碼</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-number"
+                    placeholder=""
+                    required=""
+                  />
+                  <div class="invalid-feedback">信用卡號碼是必須的</div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label">到期日</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-expiration"
+                    placeholder=""
+                    required=""
+                  />
+                  <div class="invalid-feedback">到期日是必須的</div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-cvv"
+                    placeholder=""
+                    required=""
+                  />
+                  <div class="invalid-feedback">安全碼是必須的</div>
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <button class="w-100 btn btn-lg btn-danger" type="submit">
+                付款
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <div class="fixed-bottom bg-dark">
+      <footer class="py-1 my-1">
+        <p class="text-center text-white">
+          © 2023 M&J Technology Ltd, All Rights Reserved
+        </p>
+      </footer>
+    </div>
+    <script src="./js/checkout.js"></script>
+  </body>
+</html>
