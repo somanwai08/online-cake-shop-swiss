@@ -40,38 +40,41 @@ renderBill()
 
 // 渲染區域選擇列表
 const district = document.querySelector('.district')
-axios.defaults.baseURL = 'http://ajax-api.itheima.net'
+axios.defaults.baseURL = 'https://api.kwsgo.com/static'
 async function renderDistrict() {
-  //  獲取省份信息
-  let {
-    data: { data: provinceList },
-  } = await axios.get('/api/province')
-  // console.log(provinceList)
-  // 渲染省列表
-  let newProvinceList = provinceList.map(
-    (item) => `<option value="${item}">--${item}--</option>`
+  //  獲取區域信息
+  let { data: districtList } = await axios.get('/district.json')
+
+  // 渲染區域列表
+  let newDistrictList = districtList.map(
+    (item) => `<option value="${item}">${item}</option>`
   )
   district.innerHTML =
-    '<option value="">--請選擇--</option>' + newProvinceList.join('')
+    '<option value="">--請選擇--</option>' + newDistrictList.join('')
 }
 
 renderDistrict()
 
 // 區域切換功能
 district.addEventListener('change', async function (e) {
+  let res = {}
   // e.target.value就是選取的省份
-  // 發請求獲取城市列表cityList
-  const {
-    data: { data: cityList },
-  } = await axios.get('/api/city', {
-    params: { pname: e.target.value },
-  })
-
+  if (e.target.value === '香港') {
+    // 發請求獲取subdistrictList
+    res = await axios.get(`/hk.json`)
+  } else if (e.target.value === '九龍') {
+    // 發請求獲取城市列表cityList
+    res = await axios.get(`/kl.json`)
+  } else if (e.target.value === '新界') {
+    // 發請求獲取城市列表cityList
+    res = await axios.get(`/nt.json`)
+  }
+  const { data: subdistrictList } = res
   // 把cityList每一項加工成節點
-  const newCityList = cityList.map(
+  const newSubdistrictList = subdistrictList.map(
     (item) => `<option value="${item}">${item}</option>`
   )
   // 渲染城市列表
   document.querySelector('.subdistrict').innerHTML =
-    '<option value="">--請選擇--</option>' + newCityList.join('')
+    '<option value="">--請選擇--</option>' + newSubdistrictList.join('')
 })
